@@ -790,6 +790,12 @@ module.exports = config
 ```
 
 
+### 本文的项目地址
+
+本文的项目地址：<https://github.com/smyhvae/vue-todo>。可以在`chapter-01`分支上看到文本截止到目前为止的代码。
+
+
+
 
 
 
