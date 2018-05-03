@@ -21,6 +21,11 @@ const config = {
                 test: /\.vue$/,  //通过`vue-loader`工具，让 webpack 支持 .vue 文件的编译
                 loader: 'vue-loader'
             },
+            //加载 jsx 文件
+            {
+                test: /\.jsx$/,
+                loader: 'babel-loader'
+            },
             //加载 css 文件
             {
                 test: /\.css$/,
@@ -35,6 +40,12 @@ const config = {
                 use: [
                     'style-loader',
                     'css-loader',
+                    {//使用 'postcss-loader'所生成的 sourceMap，而不要使用 'stylus-loader' 所生成的 sourceMap
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     'stylus-loader'
                 ]
             },
@@ -53,11 +64,11 @@ const config = {
             }
         ]
     },
-    plugins:[
-        new webpack.DefinePlugin({ 
+    plugins: [
+        new webpack.DefinePlugin({
             //下面这个插件很有用：在这里定义之后，我们就可以在项目的js代码中，直接调用 `process.evn.NODE_ENV` 来判断环境
             //比如说，开发环境中，会打印很多错误信息，但是这些内容并不需要放在生产环境中，这时就可以用到环境的判断
-            'process.evn':{
+            'process.evn': {
                 NODE_ENV: isDev ? '"development"' : '"production"'
             }
         }),
