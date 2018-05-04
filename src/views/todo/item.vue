@@ -80,12 +80,12 @@ export default {
   outline: none;
 
   &:after {
-    content: url('../assets/images/round.svg'); // item左侧图标的圆圈
+    content: url('../../assets/images/round.svg'); // item左侧图标的圆圈
   }
 
   &:checked:after {
-    content: url('../assets/images/done.svg'); // item左侧图标的对勾
-  }
+    content: url('../../assets/images/done.svg'); // item左侧图标的对勾
+  } 
 }
 
 .destory {

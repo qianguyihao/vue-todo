@@ -10,9 +10,9 @@
 
 <script>
 //导入子组件。注意，Header 组件要大写，避免与默认的 header 标签冲突
-import Header from "./todo/header.vue";
-import Content from "./todo/content.vue";
-import Footer from "./todo/footer.jsx";
+import Header from "./layout/header.vue";
+import Content from "./views/todo/content.vue";
+import Footer from "./layout/footer.jsx";
 
 
 export default {

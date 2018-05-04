@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/smyhvae/vue-todo#readme",
   "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "webpack-merge": "^4.1.2",
     "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.3",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -36,7 +40,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.0.1",
-    "vue": "^2.5.16",
     "vue-loader": "^13.6.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^3.11.0",
