@@ -1,3 +1,37 @@
+
+## Webpack优化：CSS 单独分离打包
+
+（1）安装 pacakge：
+
+
+```
+npm i extract-text-webpack-plugin --save
+```
+
+这个包的作用是，将非 js的代码单独打包成静态资源文件。因为我们可能要单独把这个文件作为浏览器缓存。
+
+在 webpack.config.js 中引用：
+
+```
+
+```
+
+
+（2）针对 css 的打包，将开发环境和生产环境进行区分。
+
+
+
+
+（3）另外，还要对 output 中的文件名进行 hash 转换。注意：
+
+- 开发环境用`[hash:8]`。 注意，开发环境不能用 `[chunkhash:8]`，否则dev-server 会报错。
+
+- 生产化境用`[chunkhash:8]`。
+
+ 
+ 最终， webpack.config.js 的完整代码如下：
+
+```javascript
 const path = require('path')//通过path获取根路径，更保险
 const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')  //这个插件需要依赖 webpack 插件
@@ -130,4 +164,32 @@ if (isDev) {
 }
 
 module.exports = config
+```
+
+
+输入`npm run build`，编译之后，可以看到， css文件被单独编译成一个文件了，main.js文件也有hash码：
+
+20180504_1625.png
+
+
+注意，我们在 vue 文件中的css样式，并不会打包到上图中的 style.css 文件中。
+
+
+## webpack区分打包类库代码及hash优化
+
+
+我们建议将`业务代码`和`类库代码`单独拆分，分别进行打包。比如说，业务代码可能经常变动，但是后者就不一定了，我希望浏览器能长时间利用后者的缓存。
+
+
+
+
+
+
+
+
+
+
+
+
+
 
