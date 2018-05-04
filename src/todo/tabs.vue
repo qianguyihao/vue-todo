@@ -1,7 +1,7 @@
 <template>
 <!-- content中的按钮部分：all、active、completed、clear completed 这些按钮 -->
   <div class="helper">
-    <span class="left">{{unFinishedTodoLength}} items left</span>
+    <span class="left"> xx items left</span>
     <!-- 【重要】all、active、completed这三个tab，我们只用一个span即可，通过 v-for的形式将数组展现出来 -->
     <span class="tabs">
       <!-- （1）通过 v-for 的形式展现三个tab-->
