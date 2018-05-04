@@ -1,6 +1,5 @@
 
 
-
 ## webpack配置 postcss 和 vue 的 jsx 语法
 
 
@@ -86,9 +85,6 @@ module.exports= {
 
 ## 页面
 
-tabs.vue：
-
-用来定义 all、active、completed这些按钮。
 
 
 
@@ -101,6 +97,36 @@ tabs.vue：
 （3）在app.vue中通过 components 关键字声明子组件 Header
 
 （4）在 app.vue 的标签中使用 子组件的标签。
+
+
+### content.vue 文件
+
+`content.vue`代表的是中间区域的组件。
+
+
+
+（1）首先在文件中加入`<input>`输入框标签，为其增加`@keyup.enter="addTodo"`键盘输入事件。
+
+（2）通过引入子组件的方式，引入 `<item>`。
+
+
+
+
+### tabs栏
+
+tabs.vue：用来定义 all、active、completed这些按钮。
+
+
+all、active、completed这三个内容，我们只用一个span即可，通过 v-for的形式将数组展现出来。
+
+注意，如果是通过 v-for 循环出来的节点，我们一定要加上 `:key`这个属性。这样的话，下次循环的时候，如果key相同，就会复用；而不是重新生成新的节点，去替换旧的节点。
+
+
+
+
+
+
+
 
 
 
