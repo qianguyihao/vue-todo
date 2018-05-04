@@ -99,6 +99,10 @@ if (isDev) {
     )
 } else {
     //对生产环境进行配置
+    config.entry = {
+        app: path.join(__dirname, 'src/index.js'),
+        vendor: ['vue']   //比如 vendor: ['vue','vue-rooter']
+    }
     config.output.filename = '[name].[chunkhash:8].js' //对生产环境的文件名用 chunkhash
 
     config.module.rules.push({
@@ -121,7 +125,7 @@ if (isDev) {
     config.plugins.push(
         new ExtractPlugin('styles.[contentHash:8].css'),  //将输出的css文件进行hash转换
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor'  //注意，name里的值是自己起的，但要和上面的值保持一致。
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'

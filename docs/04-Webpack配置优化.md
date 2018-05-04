@@ -20,8 +20,6 @@ npm i extract-text-webpack-plugin --save
 （2）针对 css 的打包，将开发环境和生产环境进行区分。
 
 
-
-
 （3）另外，还要对 output 中的文件名进行 hash 转换。注意：
 
 - 开发环境用`[hash:8]`。 注意，开发环境不能用 `[chunkhash:8]`，否则dev-server 会报错。
@@ -154,12 +152,6 @@ if (isDev) {
     })
     config.plugins.push(
         new ExtractPlugin('styles.[contentHash:8].css'),  //将输出的css文件进行hash转换
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'runtime'
-        })
     )
 }
 
@@ -181,7 +173,34 @@ module.exports = config
 我们建议将`业务代码`和`类库代码`单独拆分，分别进行打包。比如说，业务代码可能经常变动，但是后者就不一定了，我希望浏览器能长时间利用后者的缓存。
 
 
+需要增加的配置：
 
+(1)
+
+```
+    config.entry = {
+        app: path.join(__dirname, 'src/index.js'),
+        vendor: ['vue']   //比如 vendor: ['vue','vue-rooter']
+    }
+```
+
+
+（2）
+
+```
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'  //注意，name里的值是自己起的，但要和上面的值保持一致。
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'runtime'
+        })
+```
+
+
+输入`npm run build`，编译之后，可以看到，会多出一个 render.js 文件。
+
+
+	
 
 
 
