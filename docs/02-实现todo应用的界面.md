@@ -74,12 +74,11 @@ module.exports= {
 ```
 
 
-20180503_1615.png
+![](http://img.smyhvae.com/20180503_1615.png)
 
 最后，输入`npm run dev`，编译项目，如果不报错，说明配置成功。效果如下：
 
-20180503_2020.png
-
+![](http://img.smyhvae.com/20180503_2020.png)
 
 
 

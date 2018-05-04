@@ -205,7 +205,7 @@ npm run build
 ```
 
 
-如果报错，可能是 css-loader的版本不对。参考链接：<https://www.imooc.com/qadetail/258131>
+如果报错，可能是 css-loader的版本不对。参考链接：[#](https://www.imooc.com/qadetail/258131)
 
 成功后的效果如下：
 
