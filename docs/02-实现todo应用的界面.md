@@ -125,6 +125,11 @@ all、active、completed这三个内容，我们只用一个span即可，通过 
 
 
 
+### 本文的项目地址
+
+本文的项目地址：<https://github.com/smyhvae/vue-todo>。可以在`chapter-02`分支上看到文本截止到目前为止的代码。
+
+
 
 
 

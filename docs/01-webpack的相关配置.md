@@ -798,13 +798,14 @@ module.exports = config
 
 
 
-
-
 ## vue-todo项目的相关链接
 
-- 项目官方演示地址：<http://ssr.todo.jokcy.me/app>
+- 项目官方演示地址（有服务器端渲染）：<http://ssr.todo.jokcy.me>
 
-- GitHub官方源码地址：<https://github.com/smyhvae/vue-todo-tech>
+- 项目官方演示地址（无服务器端渲染）：<http://todo.jokcy.me>
+
+
+- GitHub官方源码地址：<https://github.com/Jokcy/vue-todo-tech>
 
 - 网友作品：<https://github.com/liangxiaojuan/vue-todos>
 

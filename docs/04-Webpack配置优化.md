@@ -200,7 +200,12 @@ module.exports = config
 输入`npm run build`，编译之后，可以看到，会多出一个 render.js 文件。
 
 
-	
+### 本文的项目地址
+
+本文的项目地址：<https://github.com/smyhvae/vue-todo>。可以在`chapter-04`分支上看到文本截止到目前为止的代码。
+
+
+
 
 
 
