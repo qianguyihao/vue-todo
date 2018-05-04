@@ -1,7 +1,7 @@
 <template>
-  <!-- 已经在输入框下方列出来的list/item。  -->
-  <!-- class 通过 v-bind 的写法。里面可以传数组。数组里的第二个参数表示，要么加 class = completed，那么不加-->
-  <div :class="['todo-item', todo.completed ? 'completed' : '']">
+  <!-- 已经在输入框下方列出来的单个item。  -->
+  <!-- class 通过 v-bind 的写法。里面可以传数组。数组里的第二个参数表示，要么加 class = completed，要么不加-->
+  <div :class="['list-item', todo.completed ? 'completed' : '']">
     <!-- item 左侧的checkbox标签。代表的是 todo.completed 里的值 -->
     <input 
       type="checkbox"
@@ -13,7 +13,7 @@
     <label>{{todo.content}}</label>
 
     <!-- item 右侧的 叉叉 -->
-    <button class="destory" @click="deleteTodo"></button>
+    <button class="destory" @click="deleteTodoItem"></button>
   </div>
 </template>
 
@@ -26,7 +26,9 @@ export default {
     }
   },
   methods: {
-    deleteTodo() {}
+    deleteTodoItem() {
+      this.$emit('delItem',this.todo.id); //通过 emit，将删除操作传递给父组件
+    }
   }
 };
 </script>
@@ -34,7 +36,7 @@ export default {
 
 // item的样式比较多，要详细看看
 <style lang="stylus" scoped>
-.todo-item {
+.list-item {
   position: relative;
   background-color: #fff;
   font-size: 24px;

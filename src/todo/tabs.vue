@@ -2,7 +2,7 @@
 <!-- content中的按钮部分：all、active、completed、clear completed 这些按钮 -->
   <div class="helper">
     <span class="left">{{unFinishedTodoLength}} items left</span>
-    <!-- 【重要】all、active、completed这三个tab，我们只用一个span即可，通过 v-for的形式将数组展现出来 -->
+    <!-- 【重要】all、active、completed这三个tab，我们只用一个span标签即可，通过 v-for的形式将数组展现出来 -->
     <span class="tabs">
       <!-- （1）通过 v-for 的形式展现三个tab-->
       <!-- （2）加上 :key 属性，去复用节点 -->
@@ -10,14 +10,14 @@
       <!-- （4）最后，加上 click 事件，将 state传给组件 -->
       <span
         v-for="state in states"
-       :key="state"   
+        :key="state"   
         :class="[state, filter === state ? 'actived' : '']"
         @click="toggleFilter(state)"
       >
         {{state}}
       </span>
     </span>
-    <!-- clear completed 这个按钮 -->
+    <!-- 标签：clear completed 这个按钮 -->
     <span class="clear" @click="clearAllCompleted">Clear Completed</span>
   </div>
 </template>
@@ -29,6 +29,10 @@ export default {
     filter: {
       type: String,
       required: true
+    },
+    todoDatas:{
+      type:Array,
+      required:true
     }
   },
   data() {
@@ -36,11 +40,19 @@ export default {
       states: ["all", "active", "completed"]
     };
   },
-
+  computed:{
+    unFinishedTodoLength(){
+      // filter之后，会得到一个新的数组。将新数组的长度返回，然后就可以在上方的 class="left" 标签中使用
+      return this.todoDatas.filter(todo => !todo.computed).length
+    }
+  },
   methods: {
     clearAllCompleted() {
+      this.$emit('clearAllCompleted');
+
     },
     toggleFilter(state) {
+      this.$emit('toggle',state);  //传递出去的值，就是下一个 filter 的状态
     }
   }
 };
