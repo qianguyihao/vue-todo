@@ -183,7 +183,7 @@ module.exports = {
 ```
 
 
-vue-loader：原生的webpack只支持js文件类型，而且只支持es5的语法。如果想编译其他文件类型（比如.vue格式的文件），则需要借助一些loader。
+vue-loader：原生的webpack只支持js文件类型，而且只支持es5的语法。如果想编译其他文件类型（比如.vue格式的文件），则需要借助各种loader。
 
 
 (4)在package.json中加一行：
@@ -800,16 +800,13 @@ module.exports = config
 
 ## vue-todo项目的相关链接
 
-- 项目官方演示地址（有服务器端渲染）：<http://ssr.todo.jokcy.me>
+- 项目地址：<https://github.com/smyhvae/vue-todo>
 
-- 项目官方演示地址（无服务器端渲染）：<http://todo.jokcy.me>
+- 项目演示地址（有服务器端渲染）：<http://ssr.todo.jokcy.me>
+
+- 项目演示地址（无服务器端渲染）：<http://todo.jokcy.me>
 
 
-- GitHub官方源码地址：<https://github.com/Jokcy/vue-todo-tech>
-
-- 网友作品：<https://github.com/liangxiaojuan/vue-todos>
-
-- 各种框架实现的todo项目：<http://todomvc.com/>。
 
 
 
